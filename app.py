@@ -2,7 +2,6 @@ from flask import Flask, request, Response, jsonify
 import json
 import openai
 import os
-import PyPDF2
 
 app = Flask(__name__)
 
@@ -95,6 +94,9 @@ def resume():
         return "Malformed json response from neural network.", 500
     
     return jsonify(response), 200
+@app.route('/')
+def hello():
+    return "hi"
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
